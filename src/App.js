@@ -20,12 +20,16 @@ class App extends React.Component {
         <header className="App-header">
           <input
             onChange={ (e) => {
-              console.log("it is a class now");
+              console.log("onChange event fired");
               console.log(e.target.value);
+
+              // This is a request for a change that will take place in the future
               this.setState({
                 inputText: e.target.value
-              });
-            } }
+              }, () => {
+                console.log(`After setState, State is not ${this.state.inputText}`)
+            });
+          } }
           />
           <Output
             text={this.state.inputText}
