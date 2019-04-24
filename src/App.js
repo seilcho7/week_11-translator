@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 
 import Output from './Output';
+import CustomInput from './CustomInput';
 
 class App extends React.Component {
   constructor(props) {
@@ -29,9 +30,12 @@ class App extends React.Component {
             }
           </ul>
 
-          <input
+          {/* <input
             onChange={ this._updateInputText }
-          />
+          /> */}
+          
+          <CustomInput handleInput={ this._updateInputText } />
+
           <Output
             text={ this.state.inputText }
           />
