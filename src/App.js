@@ -9,7 +9,8 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      inputText: ''
+      inputText: '',
+      names: ["oakley", "milla", "angela"]
     }
 
   }
@@ -17,24 +18,27 @@ class App extends React.Component {
   render() {
     console.log('Rendering App');
     console.log(`Top of App.render, State is now ${this.state.inputText}`);
-    const names = ["oakley", "milla", "angela"];
 
     return (
       <div className="App">
         <header className="App-header">
-          <ul>
+          <ul className="List">
             {
-              names.map(n => <li>{n}</li>)
+              this.state.names.map((n, i) => (
+              <li key={i}>{n}</li>))
             }
           </ul>
 
-          {/* <input
+          <input
             onChange={ this._updateInputText }
-          /> */}
-          {/* <Output
+          />
+          <Output
             text={ this.state.inputText }
-          /> */}
-
+          />
+          <Output
+            text={ this.state.inputText }
+            transform="l33t"
+          />
         </header>
       </div>
     );
@@ -48,7 +52,7 @@ class App extends React.Component {
     this.setState({
       inputText: e.target.value
     }, () => {
-      console.log(`After setState, State is not ${this.state.inputText}`);
+      console.log(`After setState, State is now ${this.state.inputText}`);
     });
   }
 }
